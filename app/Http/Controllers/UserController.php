@@ -22,8 +22,8 @@ class UserController extends Controller
         $user->name="test";
         $user->email="tet@abv";
         $user->password=bcrypt("123");
-        $user->save();*/
-        //dd($user);
+        $user->save();
+        //dd($user);*/
         $user=[
             'name'=>'Ak',
             'email'=>'ak@techahead.in',
