@@ -1,5 +1,4 @@
 <div>
-    <!-- Happiness is not something readymade. It comes from your own actions. - Dalai Lama -->
     {{$slot}}
     @if(session()->has('message'))
         <div class="alert alert-success bg-green-100 border-l-4 border-green-500 text-green-700 p-4">
@@ -19,5 +18,5 @@
             @endforeach
         </ul>
     </div>
-@endif
+    @endif
 </div>

@@ -13,7 +13,16 @@
         <div>
             <textarea type="text" name="description" placeholder="description"  class="py-2 my-2 px-2 border rounded" >{{$todo->description}}</textarea>
         </div>
+        
+        @livewire('edit-step',['steps'=> $todo->steps ])
 
+        @if ($todo->steps()->count()>0)
+            @foreach ($todo->steps as $step)
+            <!--<div class="p-2">
+                <input type="text" name="Step[]" value="{{$step->name}}" class="py-2 px-2 border rounded" /> 
+            </div>  -->            
+            @endforeach
+        @endif
         <input type="submit" value="update"  class="py-2 px-2 border rounded" />
 
     </form>    

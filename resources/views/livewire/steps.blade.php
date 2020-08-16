@@ -8,7 +8,7 @@
     {{--$steps--}}
 
     @foreach($steps as $key => $step)
-        <div class="pb-1">
+        <div class="pb-1" wire:key="{{ $key }}">
             <input type="text" name="Step[]" placeholder="{{'add Step '.$step}}" class="py-2 px-2 border rounded" />
             <i  wire:click="remove({{$key}})" class="fas fa-times cursor-pointer  p-2 text-red-400"></i>  
         </div>

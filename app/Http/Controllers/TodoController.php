@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\TodoCreateRequest;
 use App\Todo;
+use App\Step;
 
 class TodoController extends Controller
 {
@@ -49,16 +50,29 @@ class TodoController extends Controller
     }
 
     public function show(Todo $todo){
-        //sreturn ($todo);
+        //return ($todo->steps);
         //$todo=Todo::find($id);
         //return ($todo);
         return view('todo.show',compact('todo'));
     }
 
     public function update(TodoCreateRequest $request ,Todo $todo){
-        //$todo->update(['title'=>$request->title]);
-        $todo->update($request->all());
         //dd($request->all());
+        $todo->update(['title'=>$request->title]);
+        if($request->StepName){
+            foreach($request->StepName as $key=>$val) {
+                $id=$request->StepId[$key];
+                if($id==""){
+                    $todo->steps()->create(['name'=> $val]);
+                }else{
+                    $step=Step::find($id);
+                    $step->update(['name'=> $val]);                   
+                }
+
+            }
+        }
+        //$todo->update($request->all());
+        
         return redirect(route('todo.index'))->with(['message'=>'Todo updated Successfully']);
     }
 
