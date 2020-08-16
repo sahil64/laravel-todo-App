@@ -16,7 +16,6 @@ class UserController extends Controller
         //$users = DB::select('select * from users where id = ?', [1]);
         //DB::insert('insert into users (id, name, email,password) values (?, ?, ?, ?)', [1, 'Dayle','admin@admin.com','abc']);
         //return ( $users);
-
         //-----------------Insertingg Data
         /*$user=new User();
         $user->name="test";
